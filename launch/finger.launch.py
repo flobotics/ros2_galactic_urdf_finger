@@ -11,7 +11,7 @@ def generate_launch_description():
 
     urdf_file_name = 'finger.urdf.xml'
     urdf = os.path.join(
-        get_package_share_directory('urdf_finger'),
+        get_package_share_directory('ros2_galactic_urdf_finger'),
         urdf_file_name)
     with open(urdf, 'r') as infp:
         robot_desc = infp.read()
@@ -29,7 +29,7 @@ def generate_launch_description():
             parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
             arguments=[urdf]),
         Node(
-            package='urdf_finger',
+            package='ros2_galactic_urdf_finger',
             executable='state_publisher',
             name='state_publisher',
             output='screen'),

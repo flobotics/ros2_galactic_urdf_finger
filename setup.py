@@ -3,7 +3,7 @@ import os
 from glob import glob
 from setuptools import find_packages
 
-package_name = 'urdf_finger'
+package_name = 'ros2_galactic_urdf_finger'
 
 setup(
     name=package_name,
