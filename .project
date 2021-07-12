@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>urdf_finger</name>
+	<name>ros2_galactic_urdf_finger</name>
 	<comment></comment>
 	<projects>
 	</projects>
