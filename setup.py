@@ -27,5 +27,8 @@ setup(
         'console_scripts': [
             'state_publisher = ros2_galactic_urdf_finger.state_publisher:main'
         ],
+        'console_scripts': [
+            'angle_finger_test_state_publisher = ros2_galactic_urdf_finger.angle_finger_test_state_publisher:main'
+        ],
     },
 )
