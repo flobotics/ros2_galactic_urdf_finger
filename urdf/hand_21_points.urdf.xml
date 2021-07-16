@@ -1,6 +1,6 @@
 <robot name="angle_finger">
 
-  <link name="wrist1">
+  <link name="wrist">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -12,7 +12,7 @@
     </visual>
   </link>
   
-  <link name="metacarpals1">
+  <link name="index_finger_mcp">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -24,7 +24,7 @@
     </visual>
   </link>
   
-  <link name="proximal1">
+  <link name="index_finger_pip">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -36,7 +36,7 @@
     </visual>
   </link>
   
-  <link name="intermediate1">
+  <link name="index_finger_dip">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -48,7 +48,7 @@
     </visual>
   </link>
   
-  <link name="distal1">
+  <link name="index_finger_tip">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -252,10 +252,10 @@
     </visual>
   </link>
   
-  <joint name="wrist1_joint" type="floating">
+  <joint name="wrist_joint" type="floating">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="wrist1"/>
-    <child link="metacarpals1"/>
+    <parent link="wrist"/>
+    <child link="index_finger_mcp"/>
 
     <calibration rising="0.0"/>
     <dynamics damping="0.0" friction="0.0"/>
@@ -263,10 +263,10 @@
     <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-2.0" soft_upper_limit="0.5" />
   </joint>
   
-  <joint name="metacarpals1_joint" type="floating">
+  <joint name="index_finger_mcp_joint" type="floating">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="metacarpals1"/>
-    <child link="proximal1"/>
+    <parent link="index_finger_mcp"/>
+    <child link="index_finger_pip"/>
 
     <calibration rising="0.0"/>
     <dynamics damping="0.0" friction="0.0"/>
@@ -274,10 +274,10 @@
     <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-2.0" soft_upper_limit="0.5" />
   </joint>
   
-  <joint name="proximal1_joint" type="floating">
+  <joint name="index_finger_pip_joint" type="floating">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="proximal1"/>
-    <child link="intermediate1"/>
+    <parent link="index_finger_pip"/>
+    <child link="index_finger_dip"/>
 
     <calibration rising="0.0"/>
     <dynamics damping="0.0" friction="0.0"/>
@@ -285,10 +285,10 @@
     <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-2.0" soft_upper_limit="0.5" />
   </joint>
   
-  <joint name="intermediate1_joint" type="floating">
+  <joint name="index_finger_tip_joint" type="floating">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="intermediate1"/>
-    <child link="distal1"/>
+    <parent link="index_finger_dip"/>
+    <child link="index_finger_tip"/>
 
     <calibration rising="0.0"/>
     <dynamics damping="0.0" friction="0.0"/>
@@ -298,7 +298,7 @@
   
   <joint name="thumb_cmc_joint" type="floating">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="wrist1"/>
+    <parent link="wrist"/>
     <child link="thumb_cmc"/>
 
     <calibration rising="0.0"/>
