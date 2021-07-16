@@ -38,6 +38,13 @@ def generate_launch_description():
             executable='cam2image',
             name='cam2image',
             output='screen'),
+        Node(
+            package='rviz2',
+            namespace='',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d' + os.path.join(get_package_share_directory('ros2_galactic_urdf_finger'), 'hand_21_points.rviz')]
+        )
         # Node(
         #     package='ros2_galactic_urdf_finger',
         #     executable='hand_21_points_state_publisher',
