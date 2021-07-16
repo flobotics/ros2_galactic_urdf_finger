@@ -30,5 +30,8 @@ setup(
         'console_scripts': [
             'angle_finger_test_state_publisher = ros2_galactic_urdf_finger.angle_finger_test_state_publisher:main'
         ],
+        'console_scripts': [
+            'hand_21_points_state_publisher = ros2_galactic_urdf_finger.hand_21_points_state_publisher:main'
+        ],
     },
 )

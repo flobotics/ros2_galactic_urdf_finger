@@ -9,7 +9,7 @@ def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
-    urdf_file_name = 'angle_finger_test.urdf.xml'
+    urdf_file_name = 'hand_21_points.urdf.xml'
     urdf = os.path.join(
         get_package_share_directory('ros2_galactic_urdf_finger'),
         urdf_file_name)
@@ -40,8 +40,8 @@ def generate_launch_description():
             output='screen'),
         # Node(
         #     package='ros2_galactic_urdf_finger',
-        #     executable='angle_finger_test_state_publisher',
-        #     name='state_publisher',
+        #     executable='hand_21_points_state_publisher',
+        #     name='hand_21_points_state_publisher',
         #     output='screen'),
 
     ])
