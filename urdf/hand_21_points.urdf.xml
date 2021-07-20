@@ -1,4 +1,4 @@
-<robot name="angle_finger">
+<robot name="mediapipe_hand">
 
   <link name="wrist">
     <visual>
@@ -342,7 +342,7 @@
   
   <joint name="middle_finger_mcp_joint" type="floating">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="metacarpals1"/>
+    <parent link="index_finger_mcp"/>
     <child link="middle_finger_mcp"/>
 
     <calibration rising="0.0"/>

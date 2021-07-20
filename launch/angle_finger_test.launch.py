@@ -30,8 +30,8 @@ def generate_launch_description():
             arguments=[urdf]),
         Node(
             package='ros2_galactic_mediapipe_hands',
-            executable='ros2_galactic_mediapipe_hands',
-            name='ros2_galactic_mediapipe_hands',
+            executable='ros2_galactic_mediapipe_hands2',
+            name='ros2_galactic_mediapipe_hands2',
             output='screen'),
         Node(
             package='image_tools',

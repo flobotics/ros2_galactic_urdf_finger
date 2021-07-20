@@ -28,10 +28,17 @@ def generate_launch_description():
             output='screen',
             parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
             arguments=[urdf]),
+        # Node(
+        #     package='joint_state_publisher',
+        #     executable='joint_state_publisher',
+        #     name='joint_state_publisher',
+        #     output='screen',
+        #     parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
+        #     arguments=[urdf]),
         Node(
             package='ros2_galactic_mediapipe_hands',
-            executable='ros2_galactic_mediapipe_hands',
-            name='ros2_galactic_mediapipe_hands',
+            executable='ros2_galactic_mediapipe_hands2',
+            name='ros2_galactic_mediapipe_hands2',
             output='screen'),
         Node(
             package='image_tools',

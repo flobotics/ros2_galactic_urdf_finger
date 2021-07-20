@@ -1,6 +1,6 @@
 <robot name="angle_finger">
 
-<link name="wrist1">
+<link name="wrist">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -12,7 +12,7 @@
     </visual>
   </link>
   
-  <link name="metacarpals1">
+  <link name="thumb_cmc">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -23,86 +23,15 @@
       </material>
     </visual>
   </link>
+ 
   
-  <link name="proximal1">
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <sphere radius="0.01"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0 0 1 1" />
-      </material>
-    </visual>
-  </link>
-  
-  <link name="intermediate1">
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <sphere radius="0.01"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0 0 1 1" />
-      </material>
-    </visual>
-  </link>
-  
-    <link name="distal1">
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <sphere radius="0.01"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0 0 1 1" />
-      </material>
-    </visual>
-  </link>
-  
-  <joint name="wrist1_joint" type="floating">
+  <joint name="wrist_joint" type="revolute">
     <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="wrist1"/>
-    <child link="metacarpals1"/>
-
-    <calibration rising="0.0"/>
-    <dynamics damping="0.0" friction="0.0"/>
-    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
-    <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-2.0" soft_upper_limit="0.5" />
+    <parent link="wrist"/>
+    <child link="thumb_cmc"/>
+    <limit effort="30" velocity="1.0" lower="0" upper="90" />
   </joint>
   
-  <joint name="metacarpals1_joint" type="floating">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="metacarpals1"/>
-    <child link="proximal1"/>
-
-    <calibration rising="0.0"/>
-    <dynamics damping="0.0" friction="0.0"/>
-    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
-    <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-2.0" soft_upper_limit="0.5" />
-  </joint>
-  
-  <joint name="proximal1_joint" type="floating">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="proximal1"/>
-    <child link="intermediate1"/>
-
-    <calibration rising="0.0"/>
-    <dynamics damping="0.0" friction="0.0"/>
-    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
-    <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-2.0" soft_upper_limit="0.5" />
-  </joint>
-  
-  <joint name="intermediate1_joint" type="floating">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="intermediate1"/>
-    <child link="distal1"/>
-
-    <calibration rising="0.0"/>
-    <dynamics damping="0.0" friction="0.0"/>
-    <limit effort="30" velocity="1.0" lower="-2.2" upper="0.7" />
-    <safety_controller k_velocity="10" k_position="15" soft_lower_limit="-2.0" soft_upper_limit="0.5" />
-  </joint>
-  
+ 
 
 </robot>
