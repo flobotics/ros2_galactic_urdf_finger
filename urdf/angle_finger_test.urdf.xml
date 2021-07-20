@@ -2,9 +2,9 @@
 
 <link name="wrist">
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
       <geometry>
-        <sphere radius="0.01"/>
+        <cylinder length="0.1" radius="0.01"/>
       </geometry>
       <material name="green">
         <color rgba="0 1 0 1" />
@@ -14,9 +14,9 @@
   
   <link name="thumb_cmc">
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
+      <origin xyz="0 0 0.05" rpy="0 0 0" />
       <geometry>
-        <sphere radius="0.01"/>
+        <cylinder length="0.1" radius="0.01"/>
       </geometry>
       <material name="red">
         <color rgba="1 0 0 1" />
@@ -26,10 +26,10 @@
  
   
   <joint name="wrist_joint" type="revolute">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
     <parent link="wrist"/>
     <child link="thumb_cmc"/>
-    <limit effort="30" velocity="1.0" lower="0" upper="90" />
+    <limit effort="30" velocity="1.0" lower="0" upper="350" />
   </joint>
   
  
