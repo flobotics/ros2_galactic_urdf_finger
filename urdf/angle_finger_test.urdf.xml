@@ -66,7 +66,7 @@
     <parent link="metacarpals"/>
     <child link="metacarpals_2"/>
     <axis xyz="0 1 0"/>
-    <limit effort="30" velocity="1.0" lower="0" upper="45" />
+    <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
   </joint>
   
   <joint name="metacarpals_2_joint" type="revolute">
@@ -74,7 +74,7 @@
     <parent link="metacarpals_2"/>
     <child link="proximal"/>
     <axis xyz="1 0 0"/>
-    <limit effort="30" velocity="1.0" lower="0" upper="45" />
+    <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
   </joint>
   
   <joint name="proximal_joint" type="revolute">
@@ -82,7 +82,7 @@
     <parent link="proximal"/>
     <child link="intermediate"/>
     <axis xyz="0 1 0"/>
-    <limit effort="30" velocity="1.0" lower="0" upper="45" />
+    <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
   </joint>
   
   <joint name="intermediate_joint" type="revolute">
@@ -90,7 +90,7 @@
     <parent link="intermediate"/>
     <child link="distal"/>
     <axis xyz="0 1 0"/>
-    <limit effort="30" velocity="1.0" lower="0" upper="45" />
+    <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
   </joint>
 
 </robot>

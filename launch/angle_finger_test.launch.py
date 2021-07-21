@@ -28,11 +28,11 @@ def generate_launch_description():
             output='screen',
             parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
             arguments=[urdf]),
-        Node(
-            package='ros2_galactic_mediapipe_hands',
-            executable='ros2_galactic_mediapipe_hands_angle',
-            name='ros2_galactic_mediapipe_hands_angle',
-            output='screen'),
+        # Node(
+        #     package='ros2_galactic_mediapipe_hands',
+        #     executable='ros2_galactic_mediapipe_hands_angle',
+        #     name='ros2_galactic_mediapipe_hands_angle',
+        #     output='screen'),
         Node(
             package='image_tools',
             executable='cam2image',
@@ -44,11 +44,11 @@ def generate_launch_description():
             executable='rviz2',
             name='rviz2',
             arguments=['-d' + os.path.join(get_package_share_directory('ros2_galactic_urdf_finger'), 'angle_finger_test.rviz')]
-        )
-        # Node(
-        #     package='ros2_galactic_mediapipe_hands',
-        #     executable='angle_finger_test_state_publisher',
-        #     name='state_publisher',
-        #     output='screen'),
+        ),
+        Node(
+            package='joint_state_publisher_gui',
+            executable='joint_state_publisher_gui',
+            name='joint_state_publisher_gui',
+            output='screen'),
 
     ])
