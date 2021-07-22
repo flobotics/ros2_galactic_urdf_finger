@@ -14,12 +14,12 @@ def generate_launch_description():
         get_package_share_directory('ros2_galactic_urdf_finger'),
         xacro_file_name)
 
-    urdf_file_name = 'angle_finger_test.urdf.xml'
-    urdf = os.path.join(
-        get_package_share_directory('ros2_galactic_urdf_finger'),
-        urdf_file_name)
-    with open(urdf, 'r') as infp:
-        robot_desc = infp.read()
+    # urdf_file_name = 'angle_finger_test.urdf.xml'
+    # urdf = os.path.join(
+    #     get_package_share_directory('ros2_galactic_urdf_finger'),
+    #     urdf_file_name)
+    # with open(urdf, 'r') as infp:
+    #     robot_desc = infp.read()
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -36,8 +36,7 @@ def generate_launch_description():
             name='robot_state_publisher',
             namespace="index",
             output='screen',
-            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro',' ', xacro_file_path, ' prefix:=index'])}],
-            arguments=[urdf]),
+            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro',' ', xacro_file_path, ' prefix:=index'])}]),
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
