@@ -9,7 +9,7 @@ def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
-    urdf_file_name = 'hand_21_points.urdf.xml'
+    urdf_file_name = 'mediapipe_hands_21_points.urdf.xml'
     urdf = os.path.join(
         get_package_share_directory('ros2_galactic_urdf_finger'),
         urdf_file_name)
@@ -37,8 +37,8 @@ def generate_launch_description():
         #     arguments=[urdf]),
         Node(
             package='ros2_galactic_mediapipe_hands',
-            executable='ros2_galactic_mediapipe_hands2',
-            name='ros2_galactic_mediapipe_hands2',
+            executable='ros2_galactic_mediapipe_hands',
+            name='ros2_galactic_mediapipe_hands',
             output='screen'),
         Node(
             package='image_tools',
@@ -50,7 +50,7 @@ def generate_launch_description():
             namespace='',
             executable='rviz2',
             name='rviz2',
-            arguments=['-d' + os.path.join(get_package_share_directory('ros2_galactic_urdf_finger'), 'hand_21_points.rviz')]
+            arguments=['-d' + os.path.join(get_package_share_directory('ros2_galactic_urdf_finger'), 'mediapipe_hands_21_points.rviz')]
         )
         # Node(
         #     package='ros2_galactic_urdf_finger',
