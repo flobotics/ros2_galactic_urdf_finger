@@ -73,7 +73,7 @@ def generate_launch_description():
             namespace='',
             executable='rviz2',
             name='rviz2',
-            arguments=['-d' + os.path.join(get_package_share_directory('ros2_galactic_urdf_finger'), 'angle_finger_test.rviz')]
+            arguments=['-d' + os.path.join(get_package_share_directory('ros2_galactic_urdf_finger'), 'hand.rviz')]
         ),
         Node(
             package='joint_state_publisher_gui',
