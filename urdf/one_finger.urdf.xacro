@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="one_finger">
+
+  <xacro:arg name="prefix" default="index"/>
+  <xacro:property name="prefix" value="$(arg prefix)" />
+
+
+  <link name="${prefix}_metacarpals">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros2_galactic_urdf_finger/metacarpals.dae"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1" />
+      </material>
+    </visual>
+  </link>
+  
+  <link name="${prefix}_metacarpals_2">
+    <visual>
+      <origin xyz="0 0 -0.004" rpy="0 0 1.6" />
+      <geometry>
+        <mesh filename="package://ros2_galactic_urdf_finger/metacarpals_joint.dae"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+  </link>
+  
+  <link name="${prefix}_proximal">
+    <visual>
+      <origin xyz="0 0 -0.004" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros2_galactic_urdf_finger/proximal.dae"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+  </link>
+  
+  <link name="${prefix}_intermediate">
+    <visual>
+      <origin xyz="0 0 -0.004" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros2_galactic_urdf_finger/intermediate.dae"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+  </link>
+  
+  <link name="${prefix}_distal">
+    <visual>
+      <origin xyz="0 0 -0.004" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://ros2_galactic_urdf_finger/distal.dae"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1" />
+      </material>
+    </visual>
+  </link>
+ 
+  
+  <joint name="${prefix}_metacarpals_joint" type="revolute">
+    <origin xyz="0 0 0.076" rpy="0 0 0"/>
+    <parent link="${prefix}_metacarpals"/>
+    <child link="${prefix}_metacarpals_2"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
+  </joint>
+  
+  <joint name="${prefix}_metacarpals_2_joint" type="revolute">
+    <origin xyz="0 0 0.011" rpy="0 0 0"/>
+    <parent link="${prefix}_metacarpals_2"/>
+    <child link="${prefix}_proximal"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
+  </joint>
+  
+  <joint name="${prefix}_proximal_joint" type="revolute">
+    <origin xyz="0 0 0.04" rpy="0 0 0"/>
+    <parent link="${prefix}_proximal"/>
+    <child link="${prefix}_intermediate"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
+  </joint>
+  
+  <joint name="${prefix}_intermediate_joint" type="revolute">
+    <origin xyz="0 0 0.04" rpy="0 0 0"/>
+    <parent link="${prefix}_intermediate"/>
+    <child link="${prefix}_distal"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
+  </joint>
+
+</robot>
