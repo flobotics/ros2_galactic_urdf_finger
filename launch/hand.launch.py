@@ -13,6 +13,11 @@ def generate_launch_description():
     xacro_file_path = os.path.join(
         get_package_share_directory('ros2_galactic_urdf_finger'),
         xacro_file_name)
+    
+    xacro_thumb_file_name = 'one_thumb.urdf.xacro'
+    xacro_thumb_file_path = os.path.join(
+        get_package_share_directory('ros2_galactic_urdf_finger'),
+        xacro_thumb_file_name)
 
     # urdf_file_name = 'angle_finger_test.urdf.xml'
     # urdf = os.path.join(
@@ -58,6 +63,13 @@ def generate_launch_description():
             namespace="pinky",
             output='screen',
             parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro',' ', xacro_file_path, ' prefix:=pinky']) }] ),
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            namespace="thumb",
+            output='screen',
+            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro',' ', xacro_thumb_file_path]) }] ),
         # Node(
         #     package='ros2_galactic_mediapipe_hands',
         #     executable='ros2_galactic_mediapipe_hands_angle',
@@ -85,23 +97,30 @@ def generate_launch_description():
         Node(
             package='joint_state_publisher_gui',
             executable='joint_state_publisher_gui',
-            name='joint_state_publisher_gui2',
+            name='joint_state_publisher_gui',
             namespace="middle",
             arguments=['robot_description:=/middle/robot_description'],
             output='screen'),
         Node(
             package='joint_state_publisher_gui',
             executable='joint_state_publisher_gui',
-            name='joint_state_publisher_gui2',
+            name='joint_state_publisher_gui',
             namespace="ring",
             arguments=['robot_description:=/ring/robot_description'],
             output='screen'),
         Node(
             package='joint_state_publisher_gui',
             executable='joint_state_publisher_gui',
-            name='joint_state_publisher_gui2',
+            name='joint_state_publisher_gui',
             namespace="pinky",
             arguments=['robot_description:=/pinky/robot_description'],
+            output='screen'),
+        Node(
+            package='joint_state_publisher_gui',
+            executable='joint_state_publisher_gui',
+            name='joint_state_publisher_gui',
+            namespace="thumb",
+            arguments=['robot_description:=/thumb/robot_description'],
             output='screen'),
         Node(
             package='tf2_ros',
@@ -113,24 +132,31 @@ def generate_launch_description():
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
-            name='static_transform_publisher2',
+            name='static_transform_publisher',
             namespace="middle",
             output='screen',
             arguments = ["0", "0.02", "0", "0", "0", "0", "odom", "middle_metacarpals"]),
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
-            name='static_transform_publisher2',
+            name='static_transform_publisher',
             namespace="ring",
             output='screen',
             arguments = ["0", "0.04", "0", "0", "0", "0", "odom", "ring_metacarpals"]),
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
-            name='static_transform_publisher2',
+            name='static_transform_publisher',
             namespace="pinky",
             output='screen',
             arguments = ["0", "0.06", "0", "0", "0", "0", "odom", "pinky_metacarpals"]),
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='static_transform_publisher',
+            namespace="thumb",
+            output='screen',
+            arguments = ["0", "0.08", "0", "0", "0", "0", "odom", "thumb_metacarpals"]),
         # Node(
         #     package='joint_state_publisher_gui',
         #     executable='joint_state_publisher_gui',
