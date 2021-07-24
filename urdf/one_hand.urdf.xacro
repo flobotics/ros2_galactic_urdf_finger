@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="one_finger">
+
+  <xacro:arg name="prefix" default="index"/>
+  <xacro:property name="prefix" value="$(arg prefix)" />
+
+  <xacro:macro name="phalanx" params="name mesh_file *origin">
+    <link name="${name}">
+    <visual>
+      <xacro:insert_block name="origin" />
+      <geometry>
+        <mesh filename="${mesh_file}"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1" />
+      </material>
+    </visual>
+  </link>
+  </xacro:macro>
+  
+  <xacro:phalanx name="${prefix}_metacarpals" mesh_file="package://ros2_galactic_urdf_finger/metacarpals.dae">
+  	<origin xyz="0 0 0.0" rpy="0 0 0" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_metacarpals_2" mesh_file="package://ros2_galactic_urdf_finger/metacarpals_joint.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 1.6" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_proximal" mesh_file="package://ros2_galactic_urdf_finger/proximal.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 0" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_intermediate" mesh_file="package://ros2_galactic_urdf_finger/intermediate.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 0" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_distal" mesh_file="package://ros2_galactic_urdf_finger/distal.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 0" />
+  </xacro:phalanx>
+    
+  <xacro:macro name="phalanx_joint" params="name parent child *origin">
+    <joint name="${name}" type="revolute">
+	    <xacro:insert_block name="origin" />
+	    <parent link="${parent}"/>
+	    <child link="${child}"/>
+	    <axis xyz="0 1 0"/>
+	    <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
+    </joint>
+  </xacro:macro>
+  
+  <xacro:phalanx_joint name="${prefix}_metacarpals_joint" parent="${prefix}_metacarpals" child="${prefix}_metacarpals_2">
+  	<origin xyz="0 0 0.076" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_metacarpals_2_joint" parent="${prefix}_metacarpals_2" child="${prefix}_proximal">
+  	<origin xyz="0 0 0.011" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_proximal_joint" parent="${prefix}_proximal" child="${prefix}_intermediate">
+  	<origin xyz="0 0 0.04" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_intermediate_joint" parent="${prefix}_intermediate" child="${prefix}_distal">
+  	<origin xyz="0 0 0.04" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+
+</robot>
