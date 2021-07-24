@@ -16,6 +16,15 @@
         <color rgba="0 1 0 1" />
       </material>
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://ros2_galactic_urdf_finger/thumb_metacarpal_joint.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
   </link>
   
   <link name="${prefix}_metacarpals_2">
@@ -28,6 +37,15 @@
         <color rgba="1 0 0 1" />
       </material>
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://ros2_galactic_urdf_finger/metacarpals_joint.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
   </link>
   
   <link name="${prefix}_proximal">
@@ -40,6 +58,15 @@
         <color rgba="1 0 0 1" />
       </material>
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://ros2_galactic_urdf_finger/proximal.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
   </link>
   
   <link name="${prefix}_intermediate">
@@ -52,6 +79,15 @@
         <color rgba="1 0 0 1" />
       </material>
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://ros2_galactic_urdf_finger/intermediate.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
   </link>
   
   <link name="${prefix}_distal">
@@ -64,6 +100,15 @@
         <color rgba="1 0 0 1" />
       </material>
     </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://ros2_galactic_urdf_finger/distal.dae"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+    </inertial>
   </link>
  
   
