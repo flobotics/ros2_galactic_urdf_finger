@@ -43,6 +43,10 @@
   	<origin xyz="0 0 -0.004" rpy="0 0 0" />
   </xacro:phalanx>
   
+  
+  
+  
+  
   <xacro:phalanx name="${prefix}_middle_metacarpals" mesh_file="package://ros2_galactic_urdf_finger/metacarpals.dae">
   	<origin xyz="0 0 0.0" rpy="0 0 0" />
   </xacro:phalanx>
@@ -60,6 +64,29 @@
   </xacro:phalanx>
   
   <xacro:phalanx name="${prefix}_middle_distal" mesh_file="package://ros2_galactic_urdf_finger/distal.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 0" />
+  </xacro:phalanx>
+  
+  
+  
+  
+  <xacro:phalanx name="${prefix}_ring_metacarpals" mesh_file="package://ros2_galactic_urdf_finger/metacarpals.dae">
+  	<origin xyz="0 0 0.0" rpy="0 0 0" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_ring_metacarpals_2" mesh_file="package://ros2_galactic_urdf_finger/metacarpals_joint.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 1.6" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_ring_proximal" mesh_file="package://ros2_galactic_urdf_finger/proximal.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 0" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_ring_intermediate" mesh_file="package://ros2_galactic_urdf_finger/intermediate.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 0" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_ring_distal" mesh_file="package://ros2_galactic_urdf_finger/distal.dae">
   	<origin xyz="0 0 -0.004" rpy="0 0 0" />
   </xacro:phalanx>
   
@@ -95,6 +122,8 @@
   	<origin xyz="0 0 0.04" rpy="0 0 0"/>
   </xacro:phalanx_joint>
   
+  
+  
   <xacro:phalanx_joint name="${prefix}_middle_base_joint" parent="${prefix}_base" child="${prefix}_middle_metacarpals">
   	<origin xyz="0 0.01 0.01" rpy="0 0 0"/>
   </xacro:phalanx_joint>
@@ -112,6 +141,30 @@
   </xacro:phalanx_joint>
   
   <xacro:phalanx_joint name="${prefix}_middle_intermediate_joint" parent="${prefix}_middle_intermediate" child="${prefix}_middle_distal">
+  	<origin xyz="0 0 0.04" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  
+  
+  
+  
+  <xacro:phalanx_joint name="${prefix}_ring_base_joint" parent="${prefix}_base" child="${prefix}_ring_metacarpals">
+  	<origin xyz="0 0.02 0.01" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_ring_metacarpals_joint" parent="${prefix}_ring_metacarpals" child="${prefix}_ring_metacarpals_2">
+  	<origin xyz="0 0 0.076" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_ring_metacarpals_2_joint" parent="${prefix}_ring_metacarpals_2" child="${prefix}_ring_proximal">
+  	<origin xyz="0 0 0.011" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_ring_proximal_joint" parent="${prefix}_ring_proximal" child="${prefix}_ring_intermediate">
+  	<origin xyz="0 0 0.04" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_ring_intermediate_joint" parent="${prefix}_ring_intermediate" child="${prefix}_ring_distal">
   	<origin xyz="0 0 0.04" rpy="0 0 0"/>
   </xacro:phalanx_joint>
   
