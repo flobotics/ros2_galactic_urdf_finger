@@ -19,6 +19,10 @@
   </link>
   </xacro:macro>
   
+  <xacro:phalanx name="${prefix}_base" mesh_file="package://ros2_galactic_urdf_finger/one_hand_base.dae">
+  	<origin xyz="0 0 0.0" rpy="0 0 0" />
+  </xacro:phalanx>
+  
   <xacro:phalanx name="${prefix}_metacarpals" mesh_file="package://ros2_galactic_urdf_finger/metacarpals.dae">
   	<origin xyz="0 0 0.0" rpy="0 0 0" />
   </xacro:phalanx>
@@ -38,6 +42,8 @@
   <xacro:phalanx name="${prefix}_distal" mesh_file="package://ros2_galactic_urdf_finger/distal.dae">
   	<origin xyz="0 0 -0.004" rpy="0 0 0" />
   </xacro:phalanx>
+  
+
     
   <xacro:macro name="phalanx_joint" params="name parent child *origin">
     <joint name="${name}" type="revolute">
@@ -48,6 +54,10 @@
 	    <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
     </joint>
   </xacro:macro>
+  
+  <xacro:phalanx_joint name="${prefix}_base_joint" parent="${prefix}_base" child="${prefix}_metacarpals">
+  	<origin xyz="0 0 0.01" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
   
   <xacro:phalanx_joint name="${prefix}_metacarpals_joint" parent="${prefix}_metacarpals" child="${prefix}_metacarpals_2">
   	<origin xyz="0 0 0.076" rpy="0 0 0"/>
@@ -64,6 +74,7 @@
   <xacro:phalanx_joint name="${prefix}_intermediate_joint" parent="${prefix}_intermediate" child="${prefix}_distal">
   	<origin xyz="0 0 0.04" rpy="0 0 0"/>
   </xacro:phalanx_joint>
+  
   
 
 </robot>

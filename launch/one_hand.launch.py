@@ -52,6 +52,6 @@ def generate_launch_description():
             name='static_transform_publisher',
             namespace="right",
             output='screen',
-            arguments = ["0", "0", "0", "0", "0", "0", "odom", "right_metacarpals"]),
+            arguments = ["0", "0", "0", "0", "0", "0", "odom", "right_base"]),
 
     ])
