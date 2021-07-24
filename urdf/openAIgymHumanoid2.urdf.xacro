@@ -7,7 +7,7 @@
 
   <link name="${prefix}_openAIgymHumanoid_base">
     <visual>
-      <origin xyz="0 0 0.0" rpy="0 0 0" />
+      <origin xyz="0 0 0.0" rpy="0 0 1.6" />
       <geometry>
         <mesh filename="package://ros2_galactic_urdf_finger/openAIgymHumanoid_motor_base.dae"/>
       </geometry>
@@ -131,13 +131,6 @@
     </inertial>
   </link>
   
-  
-  
-  
-  
-  
- 
-  
   <link name="${prefix}_metacarpals_l">
     <visual>
       <origin xyz="0 0 0.0" rpy="0 0 0" />
@@ -180,7 +173,7 @@
     </inertial>
   </link>
   
-   <link name="${prefix}_proximal_l">
+  <link name="${prefix}_proximal_l">
     <visual>
       <origin xyz="0 0 -0.004" rpy="0 0 0" />
       <geometry>
@@ -243,9 +236,8 @@
     </inertial>
   </link>
   
-  
   <joint name="${prefix}_openAIgymHumanoid_base_joint" type="fixed">
-    <origin xyz="0 -0.01 0.015" rpy="0 0 0"/>
+    <origin xyz="0 0 0.015" rpy="0 0 0"/>
     <parent link="${prefix}_openAIgymHumanoid_base"/>
     <child link="${prefix}_metacarpals"/>
   </joint>
@@ -282,8 +274,6 @@
     <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
   </joint>
   
-  
-  
 
 
   <joint name="${prefix}_openAIgymHumanoid_base_joint_l" type="fixed">
@@ -293,7 +283,7 @@
   </joint>
   
   <joint name="${prefix}_metacarpals_joint_l" type="revolute">
-    <origin xyz="0 0 0.016" rpy="0 0 0"/>
+    <origin xyz="0 0.01 0.016" rpy="0 0 0"/>
     <parent link="${prefix}_metacarpals_l"/>
     <child link="${prefix}_metacarpals_2_l"/>
     <axis xyz="0 1 0"/>
@@ -316,13 +306,13 @@
     <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
   </joint>
   
-   <joint name="${prefix}_intermediate_joint_l" type="revolute">
+  <joint name="${prefix}_intermediate_joint_l" type="revolute">
     <origin xyz="0 0 0.04" rpy="0 0 0"/>
     <parent link="${prefix}_intermediate_l"/>
     <child link="${prefix}_distal_l"/>
     <axis xyz="0 1 0"/>
     <limit effort="30" velocity="1.0" lower="-1.6" upper="1.6" />
   </joint>
- 
+  
 
 </robot>
