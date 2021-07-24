@@ -43,6 +43,26 @@
   	<origin xyz="0 0 -0.004" rpy="0 0 0" />
   </xacro:phalanx>
   
+  <xacro:phalanx name="${prefix}_middle_metacarpals" mesh_file="package://ros2_galactic_urdf_finger/metacarpals.dae">
+  	<origin xyz="0 0 0.0" rpy="0 0 0" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_middle_metacarpals_2" mesh_file="package://ros2_galactic_urdf_finger/metacarpals_joint.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 1.6" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_middle_proximal" mesh_file="package://ros2_galactic_urdf_finger/proximal.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 0" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_middle_intermediate" mesh_file="package://ros2_galactic_urdf_finger/intermediate.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 0" />
+  </xacro:phalanx>
+  
+  <xacro:phalanx name="${prefix}_middle_distal" mesh_file="package://ros2_galactic_urdf_finger/distal.dae">
+  	<origin xyz="0 0 -0.004" rpy="0 0 0" />
+  </xacro:phalanx>
+  
 
     
   <xacro:macro name="phalanx_joint" params="name parent child *origin">
@@ -72,6 +92,26 @@
   </xacro:phalanx_joint>
   
   <xacro:phalanx_joint name="${prefix}_intermediate_joint" parent="${prefix}_intermediate" child="${prefix}_distal">
+  	<origin xyz="0 0 0.04" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_middle_base_joint" parent="${prefix}_base" child="${prefix}_middle_metacarpals">
+  	<origin xyz="0 0.01 0.01" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_middle_metacarpals_joint" parent="${prefix}_middle_metacarpals" child="${prefix}_middle_metacarpals_2">
+  	<origin xyz="0 0 0.076" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_middle_metacarpals_2_joint" parent="${prefix}_middle_metacarpals_2" child="${prefix}_middle_proximal">
+  	<origin xyz="0 0 0.011" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_middle_proximal_joint" parent="${prefix}_middle_proximal" child="${prefix}_middle_intermediate">
+  	<origin xyz="0 0 0.04" rpy="0 0 0"/>
+  </xacro:phalanx_joint>
+  
+  <xacro:phalanx_joint name="${prefix}_middle_intermediate_joint" parent="${prefix}_middle_intermediate" child="${prefix}_middle_distal">
   	<origin xyz="0 0 0.04" rpy="0 0 0"/>
   </xacro:phalanx_joint>
   
