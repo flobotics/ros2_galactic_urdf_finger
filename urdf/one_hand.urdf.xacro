@@ -2,7 +2,7 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="one_finger">
 
-  <xacro:arg name="prefix" default="index"/>
+  <xacro:arg name="prefix" default="left"/>
   <xacro:property name="prefix" value="$(arg prefix)" />
 
   <xacro:macro name="phalanx" params="name mesh_file *origin">

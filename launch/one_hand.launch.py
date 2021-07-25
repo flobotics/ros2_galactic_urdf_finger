@@ -28,9 +28,9 @@ def generate_launch_description():
             package='robot_state_publisher',
             executable='robot_state_publisher',
             name='robot_state_publisher',
-            namespace="right",
+            namespace="left",
             output='screen',
-            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro',' ', xacro_file_path, ' prefix:=right'])}]),
+            parameters=[{'use_sim_time': use_sim_time, 'robot_description': Command(['xacro',' ', xacro_file_path, ' prefix:=left'])}]),
         Node(
             package='rviz2',
             namespace='',
@@ -42,16 +42,16 @@ def generate_launch_description():
             package='joint_state_publisher_gui',
             executable='joint_state_publisher_gui',
             name='joint_state_publisher_gui',
-            namespace="right",
-            arguments=['robot_description:=/right/robot_description'],
+            namespace="left",
+            arguments=['robot_description:=/left/robot_description'],
             output='screen'),
        
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
             name='static_transform_publisher',
-            namespace="right",
+            namespace="left",
             output='screen',
-            arguments = ["0", "0", "0", "0", "0", "0", "odom", "right_base"]),
+            arguments = ["0", "0", "0", "0", "0", "0", "odom", "left_base"]),
 
     ])
