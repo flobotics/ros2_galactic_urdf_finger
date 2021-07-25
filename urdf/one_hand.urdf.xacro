@@ -127,30 +127,30 @@
     </joint>
   </xacro:macro>
   
-  <xacro:phalanx_joint name="${prefix}_base_joint" parent="${prefix}_base" child="${prefix}_metacarpals">
-  	<origin xyz="0 0 0.01" rpy="0 0 0"/>
+  <xacro:phalanx_joint name="${prefix}_index_base_joint" parent="${prefix}_base" child="${prefix}_metacarpals">
+  	<origin xyz="0 -0.01 0.01" rpy="0.1 0 0"/>
   </xacro:phalanx_joint>
   
-  <xacro:phalanx_joint name="${prefix}_metacarpals_joint" parent="${prefix}_metacarpals" child="${prefix}_metacarpals_2">
+  <xacro:phalanx_joint name="${prefix}_index_metacarpals_joint" parent="${prefix}_metacarpals" child="${prefix}_metacarpals_2">
   	<origin xyz="0 0 0.076" rpy="0 0 0"/>
   </xacro:phalanx_joint>
   
-  <xacro:phalanx_joint name="${prefix}_metacarpals_2_joint" parent="${prefix}_metacarpals_2" child="${prefix}_proximal">
+  <xacro:phalanx_joint name="${prefix}_index_metacarpals_2_joint" parent="${prefix}_metacarpals_2" child="${prefix}_proximal">
   	<origin xyz="0 0 0.011" rpy="0 0 0"/>
   </xacro:phalanx_joint>
   
-  <xacro:phalanx_joint name="${prefix}_proximal_joint" parent="${prefix}_proximal" child="${prefix}_intermediate">
+  <xacro:phalanx_joint name="${prefix}_index_proximal_joint" parent="${prefix}_proximal" child="${prefix}_intermediate">
   	<origin xyz="0 0 0.04" rpy="0 0 0"/>
   </xacro:phalanx_joint>
   
-  <xacro:phalanx_joint name="${prefix}_intermediate_joint" parent="${prefix}_intermediate" child="${prefix}_distal">
+  <xacro:phalanx_joint name="${prefix}_index_intermediate_joint" parent="${prefix}_intermediate" child="${prefix}_distal">
   	<origin xyz="0 0 0.04" rpy="0 0 0"/>
   </xacro:phalanx_joint>
   
   
   
   <xacro:phalanx_joint name="${prefix}_middle_base_joint" parent="${prefix}_base" child="${prefix}_middle_metacarpals">
-  	<origin xyz="0 0.01 0.01" rpy="0 0 0"/>
+  	<origin xyz="0 0.0 0.01" rpy="0 0 0"/>
   </xacro:phalanx_joint>
   
   <xacro:phalanx_joint name="${prefix}_middle_metacarpals_joint" parent="${prefix}_middle_metacarpals" child="${prefix}_middle_metacarpals_2">
@@ -174,7 +174,7 @@
   
   
   <xacro:phalanx_joint name="${prefix}_ring_base_joint" parent="${prefix}_base" child="${prefix}_ring_metacarpals">
-  	<origin xyz="0 0.02 0.01" rpy="0 0 0"/>
+  	<origin xyz="0 0.01 0.01" rpy="-0.1 0 0"/>
   </xacro:phalanx_joint>
   
   <xacro:phalanx_joint name="${prefix}_ring_metacarpals_joint" parent="${prefix}_ring_metacarpals" child="${prefix}_ring_metacarpals_2">
@@ -199,7 +199,7 @@
   
   
   <xacro:phalanx_joint name="${prefix}_pinky_base_joint" parent="${prefix}_base" child="${prefix}_pinky_metacarpals">
-  	<origin xyz="0 -0.01 0.01" rpy="0 0 0"/>
+  	<origin xyz="0 0.02 0.01" rpy="-0.2 0 0"/>
   </xacro:phalanx_joint>
   
   <xacro:phalanx_joint name="${prefix}_pinky_metacarpals_joint" parent="${prefix}_pinky_metacarpals" child="${prefix}_pinky_metacarpals_2">
